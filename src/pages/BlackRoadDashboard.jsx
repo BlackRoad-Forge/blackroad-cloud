@@ -49,7 +49,8 @@ const METRICS = [
   { label: "Active Agents",    value: "8 / 8",    delta: "100%",       up: true,  color: "#8844FF",  sub: "all systems nominal" },
   { label: "Tunnel Conns",     value: "24",       delta: "6 tunnels",  up: true,  color: "#CC00AA",  sub: "across 4 Pis + 2 DOs" },
   { label: "Pages Projects",   value: "57",       delta: "13 custom",  up: true,  color: "#FF6B2B",  sub: "Cloudflare Pages" },
-  { label: "Storage",          value: "1.87 TB",  delta: "867GB free", up: true,  color: "#FF2255",  sub: "Octavia NVMe + Drive" },
+  { label: "Physical Storage",  value: "3.3 TB",   delta: "2TB free",   up: true,  color: "#FF2255",  sub: "8 nodes + Google Drive" },
+  { label: "Pixel Memory",     value: "13.5 PB",  delta: "×4096",      up: true,  color: "#8844FF",  sub: "content-addressable · 12 tiers" },
 ];
 
 // ─── Utilities ────────────────────────────────────────────────────

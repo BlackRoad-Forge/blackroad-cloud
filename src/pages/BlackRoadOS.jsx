@@ -344,6 +344,54 @@ function ClockApp() {
   );
 }
 
+function PixelMemoryApp() {
+  const PIXEL_RATIO = 4096;
+  const nodes = [
+    { name: "Pico W ×2",  gb: 0.004 },
+    { name: "Alice",       gb: 16 },
+    { name: "Aria",        gb: 32 },
+    { name: "Anastasia",   gb: 25 },
+    { name: "Cecilia",     gb: 128 },
+    { name: "Gematria",    gb: 80 },
+    { name: "Octavia",     gb: 1000 },
+    { name: "Google Drive", gb: 2048 },
+  ];
+  const totalPhys = nodes.reduce((s, n) => s + n.gb, 0);
+  const totalLogical = totalPhys * PIXEL_RATIO;
+  const maxGB = Math.max(...nodes.map(n => n.gb));
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+      <div style={{ fontFamily: mono, fontSize: 9, color: "#2a2a2a", textTransform: "uppercase", letterSpacing: "0.12em" }}>Pixel Memory · ×4096</div>
+      <div style={{ display: "flex", gap: 16, marginBottom: 4 }}>
+        <div>
+          <div style={{ fontFamily: sans, fontWeight: 700, fontSize: 22, color: "#f0f0f0" }}>{(totalLogical / 1e6).toFixed(1)} PB</div>
+          <div style={{ fontFamily: mono, fontSize: 9, color: "#333" }}>logical capacity</div>
+        </div>
+        <div>
+          <div style={{ fontFamily: sans, fontWeight: 700, fontSize: 22, color: "#555" }}>{(totalPhys / 1000).toFixed(1)} TB</div>
+          <div style={{ fontFamily: mono, fontSize: 9, color: "#333" }}>physical</div>
+        </div>
+      </div>
+      {nodes.map(n => {
+        const pct = (n.gb / maxGB) * 100;
+        const logical = n.gb * PIXEL_RATIO;
+        return (
+          <div key={n.name}>
+            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 2 }}>
+              <span style={{ fontFamily: mono, fontSize: 10, color: "#666" }}>{n.name}</span>
+              <span style={{ fontFamily: mono, fontSize: 10, color: "#333" }}>{logical >= 1e6 ? (logical/1e6).toFixed(1)+"PB" : logical >= 1000 ? (logical/1000).toFixed(0)+"TB" : logical.toFixed(0)+"GB"}</span>
+            </div>
+            <div style={{ height: 4, background: "rgba(255,255,255,0.03)", borderRadius: 2, overflow: "hidden" }}>
+              <div style={{ height: "100%", width: `${pct}%`, background: "linear-gradient(90deg, #8844FF, #4488FF)", borderRadius: 2 }} />
+            </div>
+          </div>
+        );
+      })}
+      <div style={{ fontFamily: mono, fontSize: 8, color: "#1e1e1e", marginTop: 4 }}>Z:=yx−w · 12 tiers · content-addressable · dedup + delta</div>
+    </div>
+  );
+}
+
 function SettingsApp() {
   const [vals, setVals] = useState({ glow: true, agents: true, chain: false, blur: true });
   const toggle = k => setVals(v => ({ ...v, [k]: !v[k] }));
@@ -383,6 +431,7 @@ const DOCK = [
   { id:"notes",    label:"Notes",     icon:"◈", color:"#CC00AA" },
   { id:"calc",     label:"Calc",      icon:"◇", color:"#00D4FF" },
   { id:"clock",    label:"Clock",     icon:"○", color:"#FF6B2B" },
+  { id:"pixel",    label:"Pixel Mem",  icon:"⬢", color:"#8844FF" },
   { id:"settings", label:"Settings",  icon:"⚙", color:"#4488FF" },
 ];
 
@@ -394,6 +443,7 @@ const APP_DEFS = {
   notes:    { title:"Notes",      icon:"◈", color:"#CC00AA", C:NotesApp,    w:280, pos:{x:80,y:70}  },
   calc:     { title:"Calc",       icon:"◇", color:"#00D4FF", C:CalcApp,     w:240, pos:{x:50,y:55}  },
   clock:    { title:"Clock",      icon:"○", color:"#FF6B2B", C:ClockApp,    w:200, pos:{x:90,y:45}  },
+  pixel:    { title:"Pixel Memory",icon:"⬢", color:"#8844FF", C:PixelMemoryApp, w:300, pos:{x:110,y:40} },
   settings: { title:"Settings",   icon:"⚙", color:"#4488FF", C:SettingsApp, w:300, pos:{x:55,y:65}  },
 };
 
