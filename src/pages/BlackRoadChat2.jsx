@@ -6,7 +6,7 @@ const mono    = "'JetBrains Mono', monospace";
 const grotesk = "'Space Grotesk', sans-serif";
 const inter   = "'Inter', sans-serif";
 
-const OLLAMA_BASE = "http://localhost:11434";
+const OLLAMA_BASE = "https://ollama.blackroad.io";
 
 const SYSTEM_PROMPT = `You are Lucidia — the cognitive core of BlackRoad OS, an AI-native operating system for sovereign organizations.
 

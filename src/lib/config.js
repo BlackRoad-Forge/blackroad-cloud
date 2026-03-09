@@ -30,7 +30,7 @@ export const CONFIG = {
     gateway: 'https://api.blackroad.io',
     // RoadCode (self-hosted Git on Octavia Pi 5)
     roadcode: 'http://192.168.4.97:3100',
-    roadcodeToken: 'd6b725383c8a1b7e364d27e22fefde8aa0342abc',
+    roadcodeToken: import.meta.env.VITE_ROADCODE_TOKEN || '',
     // Ollama (on Octavia via tunnel or local)
     ollama: 'https://ollama.blackroad.io',
     ollamaLocal: 'http://192.168.4.97:11434',

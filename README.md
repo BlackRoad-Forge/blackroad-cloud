@@ -4,7 +4,7 @@ The unified web platform for BlackRoad OS — 21 page templates deployed across 
 
 ## Live Status (2026-03-09)
 
-**99/99 Cloudflare Pages deployed** | **21/21 GitHub Pages live** | **22/22 Railway services live** | **3/3 Pis live** | **18/41 custom domains healthy**
+**99/99 Cloudflare Pages deployed** | **22/22 GitHub Pages live** | **22/22 Railway services live** | **3/3 Pis live** | **20/27 custom domains healthy** | **CI/CD: all green**
 
 ### Custom Domains — Working (200)
 
@@ -28,15 +28,15 @@ The unified web platform for BlackRoad OS — 21 page templates deployed across 
 | education.blackroad.io | Subdomain |
 | finance.blackroad.io | Subdomain |
 | legal.blackroad.io | Subdomain |
+| app.blackroad.io | Subdomain |
+| demo.blackroad.io | Subdomain |
 
 ### Custom Domains — Issues
 
 | Domain | Status | Issue |
 |--------|--------|-------|
-| blackroadinc.us | 521 | Origin down |
-| blackroadquantum.com | 521 | Origin down |
-| app.blackroad.io | 522 | Connection timeout |
-| demo.blackroad.io | 522 | Connection timeout |
+| blackroadinc.us | 525 | SSL handshake failed |
+| blackroadquantum.com | 525 | SSL handshake failed |
 | roadcoin.io | 525 | SSL handshake failed |
 | roadchain.io | 403 | Forbidden |
 | stripe.blackroad.io | 404 | Worker route |
